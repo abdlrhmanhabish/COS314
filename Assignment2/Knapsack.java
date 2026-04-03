@@ -3,8 +3,10 @@ import java.io.File;
 import java.util.*;
 
 public class Knapsack {
+
     // for holding problem data
     static class Data {
+
         int n;
         double capacity;
         double[] values;
@@ -36,44 +38,141 @@ public class Knapsack {
         Arrays.sort(files); //making sure theyre actually in the correct order 
 
         // results table setup
-        System.out.println("\n" + "=".repeat(100));
-        System.out.printf("%-25s | %-10s | %-10s | %-15s | %-15s\n","Problem Instance", "Algorithm", "Seed", "Best Solution", "Runtime (s)");
-        System.out.println("-".repeat(100));
+        System.out.println("\n" + "=".repeat(85));
+        System.out.printf("%-25s | %-10s | %-10s | %-15s | %-15s\n", "Problem Instance", "Algorithm", "Seed", "Best Solution", "Runtime (s)");
+        System.out.println("-".repeat(85));
 
-        for(File file : files){
+        for (File file : files) {
             Data data = loadData(file); // function that converts files into data objects
             if (data == null) {
                 System.out.println("Failed to load instance from file: " + file.getName());
                 continue;
             }
 
-            long startTLS = System.currentTimeMillis();
-            double LTSResult = LTS(data, seed);
-            long endTLS = System.currentTimeMillis();
-            double timeILS = (endTLS - startTLS) / 1000.0;
-            System.out.printf("%-25s | %-10s | %-15.2f | %-15.3f\n", file.getName(), "ILS", LTSResult, timeILS);
+            long startILS = System.currentTimeMillis();
+            double ILSResult = ILS(data, seed);
+            long endILS = System.currentTimeMillis();
+            double timeILS = (endILS - startILS) / 1000.0;
+            System.out.printf("%-25s | %-10s | %-10d | %-15.2f | %-15.3f\n", file.getName(), "ILS", seed, ILSResult, timeILS);
 
             long startGA = System.currentTimeMillis();
             double GAResult = GA(data, seed);
             long endGA = System.currentTimeMillis();
             double timeGA = (endGA - startGA) / 1000.0;
-            System.out.printf("%-25s | %-10s | %-15.2f | %-15.3f\n", "", "GA", GAResult, timeGA);
-            System.out.println("-".repeat(73));
+            System.out.printf("%-25s | %-10s | %-10d | %-15.2f | %-15.3f\n","", "GA", seed, GAResult, timeGA);
+            System.out.println("-".repeat(80));
         }
         scanner.close();
     }
 
     //stubbed out functions for algos
-    static double LTS(Data data, long seed){
+    static double ILS(Data data, long seed) {
         return 0;
     }
 
-    static double GA(Data data, long seed){
-        return 0;
+    static double GA(Data data, long seed) {
+        Random rand = new Random(seed);
+        int popSize = 100;
+        int maxGenerations = 1000;
+        double mutationRate = 1.0 / data.n;
+        int tornamentSize = 5;
+
+        int[][] population = new int[popSize][data.n];
+        for (int i = 0; i < popSize; i++) {
+            for (int j = 0; j < data.n; j++) {
+                if (rand.nextBoolean()) {
+                    population[i][j] = 1;
+                } else {
+                    population[i][j] = 0;
+                }
+            }
+            repair(population[i], data, rand);
+        }
+        double bestGlobalFitness = 0;
+
+        for (int gen = 0; gen < maxGenerations; gen++) {
+            double[] fitnesses = new double[popSize];
+            for (int i = 0; i < popSize; i++) {
+                fitnesses[i] = evaluteFitness(population[i], data);
+                if (fitnesses[i] > bestGlobalFitness) {
+                    bestGlobalFitness = fitnesses[i];
+                }
+            }
+            int[][] newPopulation = new int[popSize][data.n];
+
+            for (int j = 0; j < popSize; j++) {
+                int[] parent1 = tournamentSelection(population, fitnesses, tornamentSize, rand);
+                int[] parent2 = tournamentSelection(population, fitnesses, tornamentSize, rand);
+                int[] offspring = new int[data.n];
+                for (int k = 0; k < data.n; k++) {
+                    if (rand.nextBoolean()) {
+                        offspring[k] = parent1[k];
+                    } else {
+                        offspring[k] = parent2[k];
+                    }
+                }
+                if (rand.nextDouble() < mutationRate) {
+                    applyPointMutation(offspring, rand);
+                }
+
+                repair(offspring, data, rand);
+                newPopulation[j] = offspring;
+            }
+            population = newPopulation;
+        }
+
+        return bestGlobalFitness;
+    }
+
+    static void applyPointMutation(int[] individual, Random rand) {
+        int targetIndex = rand.nextInt(individual.length);
+        individual[targetIndex] = 1 - individual[targetIndex];
+    }
+
+    static int[] tournamentSelection(int[][] population, double[] fitnesses, int tournamentSize, Random rand) {
+        int bestIndex = rand.nextInt(population.length);
+        for (int i = 0; i < tournamentSize; i++) {
+            int index = rand.nextInt(population.length);
+            if (fitnesses[index] > fitnesses[bestIndex]) {
+                bestIndex = index;
+            }
+        }
+        return population[bestIndex];
+    }
+
+    static double evaluteFitness(int[] individual, Data data) {
+        double totalWeight = 0;
+        double totalValue = 0;
+        for (int i = 0; i < data.n; i++) {
+            if (individual[i] == 1) {
+                totalWeight += data.weights[i];
+                totalValue += data.values[i];
+            }
+        }
+        if (totalWeight > data.capacity) {
+            return 0;
+        }
+        return totalValue;
+    }
+
+    static void repair(int[] individual, Data data, Random rand) {
+        double totalWeight = 0;
+        for (int i = 0; i < data.n; i++) {
+            if (individual[i] == 1) {
+                totalWeight += data.weights[i];
+            }
+        }
+        while (totalWeight > data.capacity) {
+            int randomIndex = rand.nextInt(data.n);
+            if (individual[randomIndex] == 1) {
+                individual[randomIndex] = 0;
+                totalWeight -= data.weights[randomIndex];
+            }
+        }
     }
 
     // converts file data to data objs
-    static Data loadData(File file){
+    static Data loadData(File file) {
         try (Scanner scanner = new Scanner(file)) {
             scanner.useLocale(Locale.US); // same fix in main
             Data data = new Data();
@@ -81,14 +180,13 @@ public class Knapsack {
             data.capacity = scanner.nextDouble();
             data.values = new double[data.n];
             data.weights = new double[data.n];
-            for(int i = 0; i < data.n; i++){
+            for (int i = 0; i < data.n; i++) {
                 data.values[i] = scanner.nextDouble();
                 data.weights[i] = scanner.nextDouble();
             }
             scanner.close();
             return data;
-        } 
-        catch (Exception e) {
+        } catch (Exception e) {
             System.err.println("Error reading " + file.getName() + ": " + e.getMessage());
             return null;
         }
