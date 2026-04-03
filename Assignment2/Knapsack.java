@@ -67,7 +67,124 @@ public class Knapsack {
 
     //stubbed out functions for algos
     static double ILS(Data data, long seed) {
-        return 0;
+        Random random = new Random(seed);
+        int maxIterations = 100;
+        int perturbationStrength = Math.min(2, data.n);
+        int[] initialSolution = generateInitialSolution(data, random);
+        int[] currentLocalOptimum = localSearch(initialSolution, data);
+        double currentValue = calculateValue(data, currentLocalOptimum);
+        double bestValue = currentValue;
+        for (int iteration = 0; iteration < maxIterations; iteration++) {
+            int[] perturbed = perturbation(currentLocalOptimum, random, data, perturbationStrength, 50);
+            int[] candidateLocalOptimum = localSearch(perturbed, data); 
+            currentLocalOptimum = acceptanceCriterion(currentLocalOptimum, candidateLocalOptimum, data);
+            currentValue = calculateValue(data, currentLocalOptimum);
+            if (currentValue > bestValue) {
+                bestValue = currentValue;
+            }
+        }
+        return bestValue;
+    }
+
+    static int[] generateInitialSolution(Data data, Random random) {
+        int[] solution = new int[data.n];
+        for (int i = 0; i < data.n; i++) {
+            if(random.nextBoolean()){
+                solution[i] = 1;
+            }
+            else{
+                solution[i] = 0;
+            }
+        }
+        if (!isFeasible(data, solution)) {
+            repair(solution, data, random);
+        }
+        return solution;
+    }
+
+    static int[] localSearch(int[] start, Data data) {
+        int[] current = Arrays.copyOf(start, start.length);
+        double currentValue = calculateValue(data, current);
+        boolean improved = true;
+        while (improved) {
+            improved = false;
+            int[] bestNeighbor = current;
+            double bestNeighborValue = currentValue;
+            for (int i = 0; i < data.n; i++) {
+                int[] neighbor = Arrays.copyOf(current, current.length);
+                neighbor[i] = 1 - neighbor[i];
+                if (!isFeasible(data, neighbor)) {
+                    continue;
+                }
+                double neighborValue = calculateValue(data, neighbor);
+                if (neighborValue > bestNeighborValue) {
+                    bestNeighbor = neighbor;
+                    bestNeighborValue = neighborValue;
+                }
+            }
+            if (bestNeighborValue > currentValue) {
+                current = bestNeighbor;
+                currentValue = bestNeighborValue;
+                improved = true;
+            }
+        }
+        return current;
+    }
+
+    static int[] perturbation(int[] base, Random random, Data data, int flips, int maxAttempts) {
+        if (data.n == 0) {
+            return Arrays.copyOf(base, base.length);
+        }
+        int actualFlips = Math.max(1, Math.min(flips, data.n));
+        for (int attempt = 0; attempt < maxAttempts; attempt++) {
+            int[] candidate = Arrays.copyOf(base, base.length);
+            List<Integer> indices = new ArrayList<>();
+            for (int i = 0; i < data.n; i++) {
+                indices.add(i);
+            }
+            Collections.shuffle(indices, random);
+            for (int i = 0; i < actualFlips; i++) {
+                int index = indices.get(i);
+                candidate[index] = 1 - candidate[index];
+            }
+            if (isFeasible(data, candidate)) {
+                return candidate;
+            }
+        }
+        return Arrays.copyOf(base, base.length);
+    }
+
+    static int[] acceptanceCriterion(int[] current, int[] candidate, Data data) {
+        double currentValue = calculateValue(data, current);
+        double candidateValue = calculateValue(data, candidate);
+        if (candidateValue > currentValue) {
+            return candidate;
+        }
+        return current;
+    }
+
+    static boolean isFeasible(Data data, int[] solution) {
+        return calculateWeight(data, solution) <= data.capacity;
+    }
+
+    static double calculateWeight(Data data, int[] solution) {
+        double totalWeight = 0;
+        for (int i = 0; i < data.n; i++) {
+            if (solution[i] == 1) {
+                totalWeight += data.weights[i];
+            }
+        }
+        return totalWeight;
+    }
+
+    static double calculateValue(Data data, int[] solution) {
+        double totalValue = 0;
+        for (int i = 0; i < data.n; i++) {
+            if (solution[i] == 1) {
+                totalValue += data.values[i];
+            }
+        }
+        return totalValue;
     }
 
     static double GA(Data data, long seed) {
