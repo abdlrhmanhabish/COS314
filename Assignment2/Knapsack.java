@@ -16,16 +16,28 @@ public class Knapsack {
     public static void main(String args[]) {
         Scanner scanner = new Scanner(System.in);
         scanner.useLocale(Locale.US); //fix bc of decimal point issues with f5
-        System.out.println("Enter a seed value: ");
         long seed;
-        try {
-            seed = scanner.nextLong();
-            scanner.nextLine();
+        if(args.length > 0) {
+            try {
+                seed = Long.parseLong(args[0]);
+            } 
+            catch (NumberFormatException e) {
+                System.out.println("Invalid seed argument. Please provide a valid long integer.");
+                scanner.close();
+                return;
+            }
         } 
-        catch (Exception e) {
-            System.out.println("Invalid input. Please enter a valid long integer for the seed value.");
-            scanner.close();
-            return;
+        else {
+            System.out.println("Enter a seed value: ");
+            try {
+                seed = scanner.nextLong();
+                scanner.nextLine();
+            }
+            catch (Exception e) {
+                System.out.println("Invalid input. Please enter a valid long integer for the seed value.");
+                scanner.close();
+                return;
+            }
         }
 
         File instancesDir = new File("Knapsack Instances");
