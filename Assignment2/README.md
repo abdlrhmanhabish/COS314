@@ -7,8 +7,8 @@ Team Members
 
 The executable JAR is already included.
 Steps to run: 
-1. Open a terminal in the folder containing Knapsack.jar.
-2. Make sure the folder Knapsack Instances is in the same directory as Knapsack.jar.
+1. Open a terminal in the folder containing Knapsack.jar
+2. Make sure the folder Knapsack Instances is in the same directory as Knapsack.jar
 3. Run: java -jar Knapsack.jar
 4. When prompted, enter seed value. We have used seed value 45
 
