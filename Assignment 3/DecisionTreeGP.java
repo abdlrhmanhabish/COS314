@@ -217,11 +217,9 @@ public class DecisionTreeGP {
             if (globalBest == null || bestOfGeneration.fitness > globalBest.fitness) globalBest = bestOfGeneration.deepCopy();
 
             System.out.println("Generation " + generation);
-            System.out.printf(Locale.US, "Best training accuracy: %.4f%n", bestOfGeneration.accuracy);
-            System.out.printf(Locale.US, "Best fitness: %.4f%n", bestOfGeneration.fitness);
-            System.out.println("Best tree:");
-            System.out.print(bestOfGeneration.root.pretty("  ", train.featureNames));
-            System.out.println("Tree size: " + bestOfGeneration.root.size() + ", depth: " + bestOfGeneration.root.depth());
+            for (int i = 0; i < population.size(); i++) {
+                System.out.printf(Locale.US, "  Individual %d: accuracy=%.4f, fitness=%.4f%n", i + 1, population.get(i).accuracy, population.get(i).fitness);
+            }
             System.out.println();
 
             if (generation < MAX_GENERATIONS) population = nextGeneration(population, train, random);
@@ -234,7 +232,6 @@ public class DecisionTreeGP {
         Metrics testMetrics = test != null ? evaluate(globalBest, test) : null;
         double runtimeSeconds = (end - start) / 1_000_000_000.0;
 
-        System.out.println("Final model saved to: " + MODEL_FILE);
         System.out.printf(Locale.US, "Training accuracy: %.4f%%%n", trainMetrics.accuracy * 100.0);
         if (testMetrics != null) {
             System.out.printf(Locale.US, "Test accuracy: %.4f%%%n", testMetrics.accuracy * 100.0);
@@ -254,8 +251,6 @@ public class DecisionTreeGP {
         Dataset test = loadDataset(testFile);
         Metrics metrics = evaluate(model, test);
 
-        System.out.println("Loaded model:");
-        System.out.print(model.root.pretty("  ", test.featureNames));
         System.out.printf(Locale.US, "Test accuracy: %.4f%%%n", metrics.accuracy * 100.0);
         System.out.printf(Locale.US, "F-measure: %.4f%n", metrics.fMeasure);
         printConfusionMatrix(metrics.confusion);
