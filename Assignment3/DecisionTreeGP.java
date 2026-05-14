@@ -19,9 +19,9 @@ import java.util.Set;
 
 public class DecisionTreeGP {
 
-    private static final String TRAIN_FILE = "Assignment 3/Breast_train.csv";
-    private static final String TEST_FILE = "Assignment 3/Breast_test.csv";
-    private static final String MODEL_FILE = "Assignment 3/decision_tree_gp.model";
+    private static final String TRAIN_FILE = "Assignment3/Breast_train.csv";
+    private static final String TEST_FILE = "Assignment3/Breast_test.csv";
+    private static final String MODEL_FILE = "Assignment3/decision_tree_gp.model";
 
     private static final int POPULATION_SIZE = 200;
     private static final int MAX_GENERATIONS = 100;
@@ -51,7 +51,8 @@ public class DecisionTreeGP {
         final int[] maxValues;
         final Set<Integer>[] observedValues;
 
-        Dataset(String[] featureNames, List<Instance> instances, int featureCount, int[] minValues, int[] maxValues, Set<Integer>[] observedValues) {
+        Dataset(String[] featureNames, List<Instance> instances, int featureCount, int[] minValues, int[] maxValues,
+                Set<Integer>[] observedValues) {
             this.featureNames = featureNames;
             this.instances = instances;
             this.featureCount = featureCount;
@@ -63,25 +64,47 @@ public class DecisionTreeGP {
 
     private interface Node extends Serializable {
         int predict(Instance instance);
+
         Node deepCopy();
+
         int depth();
+
         int size();
+
         String pretty(String indent, String[] featureNames);
     }
 
     private static class LeafNode implements Node {
         int prediction;
-        LeafNode(int prediction) { this.prediction = prediction; }
+
+        LeafNode(int prediction) {
+            this.prediction = prediction;
+        }
+
         @Override
-        public int predict(Instance instance) { return prediction;}
+        public int predict(Instance instance) {
+            return prediction;
+        }
+
         @Override
-        public Node deepCopy() { return new LeafNode(prediction); }
+        public Node deepCopy() {
+            return new LeafNode(prediction);
+        }
+
         @Override
-        public int depth() { return 1;}
+        public int depth() {
+            return 1;
+        }
+
         @Override
-        public int size() { return 1;}
+        public int size() {
+            return 1;
+        }
+
         @Override
-        public String pretty(String indent, String[] featureNames) { return indent + "The prediction is:  " + prediction + "\n";}
+        public String pretty(String indent, String[] featureNames) {
+            return indent + "The prediction is:  " + prediction + "\n";
+        }
     }
 
     private static class DecisionNode implements Node {
@@ -100,7 +123,8 @@ public class DecisionTreeGP {
 
         @Override
         public int predict(Instance instance) {
-            if (instance.features[featureIndex] <= threshold) return left.predict(instance);
+            if (instance.features[featureIndex] <= threshold)
+                return left.predict(instance);
             return right.predict(instance);
         }
 
@@ -120,7 +144,7 @@ public class DecisionTreeGP {
         }
 
         @Override
-        // print function  to make the tree 
+        // print function to make the tree
         public String pretty(String indent, String[] featureNames) {
             StringBuilder builder = new StringBuilder();
             builder.append(indent).append("if ").append(featureNames[featureIndex])
@@ -137,7 +161,9 @@ public class DecisionTreeGP {
         double fitness;
         double accuracy;
 
-        Individual(Node root) {this.root = root;}
+        Individual(Node root) {
+            this.root = root;
+        }
 
         // Copies the individual and its tree.
         Individual deepCopy() {
@@ -189,8 +215,7 @@ public class DecisionTreeGP {
     private static long parseSeed(String value) {
         try {
             return Long.parseLong(value);
-        } 
-        catch (NumberFormatException ex) {
+        } catch (NumberFormatException ex) {
             return 45L;
         }
     }
@@ -199,7 +224,8 @@ public class DecisionTreeGP {
     private static void runTraining(long seed) throws Exception {
         File trainFile = resolveExistingFile(TRAIN_FILE, "Breast_train.csv");
         File testFile = resolveExistingFile(TEST_FILE, "Breast_test.csv");
-        if (trainFile == null) throw new IOException("Training file not found: " + TRAIN_FILE);
+        if (trainFile == null)
+            throw new IOException("Training file not found: " + TRAIN_FILE);
 
         Dataset train = loadDataset(trainFile);
         Dataset test = testFile != null ? loadDataset(testFile) : null;
@@ -214,15 +240,18 @@ public class DecisionTreeGP {
             population.sort(Comparator.comparingDouble((Individual individual) -> individual.fitness).reversed());
 
             Individual bestOfGeneration = population.get(0).deepCopy();
-            if (globalBest == null || bestOfGeneration.fitness > globalBest.fitness) globalBest = bestOfGeneration.deepCopy();
+            if (globalBest == null || bestOfGeneration.fitness > globalBest.fitness)
+                globalBest = bestOfGeneration.deepCopy();
 
             System.out.println("Generation " + generation);
             for (int i = 0; i < population.size(); i++) {
-                System.out.printf(Locale.US, "  Individual %d: accuracy=%.4f, fitness=%.4f%n", i + 1, population.get(i).accuracy, population.get(i).fitness);
+                System.out.printf(Locale.US, "  Individual %d: accuracy=%.4f, fitness=%.4f%n", i + 1,
+                        population.get(i).accuracy, population.get(i).fitness);
             }
             System.out.println();
 
-            if (generation < MAX_GENERATIONS) population = nextGeneration(population, train, random);
+            if (generation < MAX_GENERATIONS)
+                population = nextGeneration(population, train, random);
         }
         long end = System.nanoTime();
 
@@ -244,8 +273,10 @@ public class DecisionTreeGP {
     private static void runTesting() throws Exception {
         File modelFile = resolveExistingFile(MODEL_FILE);
         File testFile = resolveExistingFile(TEST_FILE, "Breast_test.csv");
-        if (modelFile == null) throw new IOException("Model file not found: " + MODEL_FILE + ". Run training first.");
-        if (testFile == null) throw new IOException("Test file not found: " + TEST_FILE);
+        if (modelFile == null)
+            throw new IOException("Model file not found: " + MODEL_FILE + ". Run training first.");
+        if (testFile == null)
+            throw new IOException("Test file not found: " + TEST_FILE);
 
         Individual model = loadModel(modelFile);
         Dataset test = loadDataset(testFile);
@@ -269,8 +300,10 @@ public class DecisionTreeGP {
 
     // Generates a random tree
     private static Node generateTree(Dataset dataset, Random random, int maxDepth, int currentDepth, boolean full) {
-        if (currentDepth >= maxDepth) return new LeafNode(random.nextBoolean() ? POSITIVE_CLASS : 0);
-        if (!full && currentDepth > 1 && random.nextDouble() < 0.35) return new LeafNode(random.nextBoolean() ? POSITIVE_CLASS : 0);
+        if (currentDepth >= maxDepth)
+            return new LeafNode(random.nextBoolean() ? POSITIVE_CLASS : 0);
+        if (!full && currentDepth > 1 && random.nextDouble() < 0.35)
+            return new LeafNode(random.nextBoolean() ? POSITIVE_CLASS : 0);
 
         int featureIndex = random.nextInt(dataset.featureCount);
         int threshold = randomThresholdForFeature(dataset, featureIndex, random);
@@ -284,8 +317,10 @@ public class DecisionTreeGP {
         List<Integer> values = new ArrayList<>(dataset.observedValues[featureIndex]);
         Collections.sort(values);
 
-        if (values.isEmpty()) return 0;
-        if (values.size() == 1) return values.get(0);
+        if (values.isEmpty())
+            return 0;
+        if (values.size() == 1)
+            return values.get(0);
 
         return values.get(random.nextInt(values.size() - 1));
     }
@@ -302,7 +337,8 @@ public class DecisionTreeGP {
     // Creates the next generation
     private static List<Individual> nextGeneration(List<Individual> population, Dataset dataset, Random random) {
         List<Individual> next = new ArrayList<>(POPULATION_SIZE);
-        for (int i = 0; i < ELITE_COUNT; i++) next.add(population.get(i).deepCopy());
+        for (int i = 0; i < ELITE_COUNT; i++)
+            next.add(population.get(i).deepCopy());
 
         while (next.size() < POPULATION_SIZE) {
             Individual parent1 = tournamentSelect(population, random);
@@ -311,13 +347,14 @@ public class DecisionTreeGP {
             if (random.nextDouble() < CROSSOVER_RATE) {
                 Individual parent2 = tournamentSelect(population, random);
                 child = crossover(parent1, parent2, random);
-            } 
-            else {
+            } else {
                 child = parent1.deepCopy();
             }
 
-            if (random.nextDouble() < MUTATION_RATE) mutate(child, dataset, random);
-            if (child.root.depth() > MAX_OFFSPRING_DEPTH) child.root = trimToDepth(child.root, MAX_OFFSPRING_DEPTH);
+            if (random.nextDouble() < MUTATION_RATE)
+                mutate(child, dataset, random);
+            if (child.root.depth() > MAX_OFFSPRING_DEPTH)
+                child.root = trimToDepth(child.root, MAX_OFFSPRING_DEPTH);
 
             next.add(child);
         }
@@ -330,7 +367,8 @@ public class DecisionTreeGP {
         Individual best = null;
         for (int i = 0; i < TOURNAMENT_SIZE; i++) {
             Individual candidate = population.get(random.nextInt(population.size()));
-            if (best == null || candidate.fitness > best.fitness) best = candidate;
+            if (best == null || candidate.fitness > best.fitness)
+                best = candidate;
         }
         return best.deepCopy();
     }
@@ -341,14 +379,17 @@ public class DecisionTreeGP {
         List<NodePath> firstNodes = collectNodes(root, new ArrayList<>(), new ArrayList<>());
         List<NodePath> secondNodes = collectNodes(parent2.root, new ArrayList<>(), new ArrayList<>());
 
-        if (firstNodes.isEmpty() || secondNodes.isEmpty()) return parent1.deepCopy();
+        if (firstNodes.isEmpty() || secondNodes.isEmpty())
+            return parent1.deepCopy();
 
         NodePath firstTarget = firstNodes.get(random.nextInt(firstNodes.size()));
         NodePath secondTarget = secondNodes.get(random.nextInt(secondNodes.size()));
         Node replacement = secondTarget.node.deepCopy();
 
-        if (firstTarget.path.isEmpty()) root = replacement;
-        else root = replaceAtPath(root, firstTarget.path, replacement);
+        if (firstTarget.path.isEmpty())
+            root = replacement;
+        else
+            root = replaceAtPath(root, firstTarget.path, replacement);
 
         return new Individual(root);
     }
@@ -368,10 +409,12 @@ public class DecisionTreeGP {
         return result;
     }
 
-    // helper to replaces a subtree 
+    // helper to replaces a subtree
     private static Node replaceAtPath(Node current, List<Boolean> path, Node replacement) {
-        if (path.isEmpty()) return replacement;
-        if (!(current instanceof DecisionNode)) return current.deepCopy();
+        if (path.isEmpty())
+            return replacement;
+        if (!(current instanceof DecisionNode))
+            return current.deepCopy();
 
         DecisionNode decision = (DecisionNode) current;
         boolean goLeft = path.get(0);
@@ -379,16 +422,19 @@ public class DecisionTreeGP {
         Node newLeft = decision.left;
         Node newRight = decision.right;
 
-        if (goLeft) newLeft = replaceAtPath(decision.left, remainder, replacement);
-        else newRight = replaceAtPath(decision.right, remainder, replacement);
-        
+        if (goLeft)
+            newLeft = replaceAtPath(decision.left, remainder, replacement);
+        else
+            newRight = replaceAtPath(decision.right, remainder, replacement);
+
         return new DecisionNode(decision.featureIndex, decision.threshold, newLeft, newRight);
     }
 
-    // mutation function, 
+    // mutation function,
     private static void mutate(Individual individual, Dataset dataset, Random random) {
         List<NodePath> nodes = collectNodes(individual.root, new ArrayList<>(), new ArrayList<>());
-        if (nodes.isEmpty()) return;
+        if (nodes.isEmpty())
+            return;
 
         NodePath target = nodes.get(random.nextInt(nodes.size()));
         Node mutated;
@@ -399,14 +445,18 @@ public class DecisionTreeGP {
             mutated = leaf;
         } else {
             DecisionNode decision = (DecisionNode) target.node.deepCopy();
-            if (random.nextBoolean()) decision.featureIndex = random.nextInt(dataset.featureCount);
-            else decision.threshold = randomThresholdForFeature(dataset, decision.featureIndex, random);
-            
+            if (random.nextBoolean())
+                decision.featureIndex = random.nextInt(dataset.featureCount);
+            else
+                decision.threshold = randomThresholdForFeature(dataset, decision.featureIndex, random);
+
             mutated = decision;
         }
 
-        if (target.path.isEmpty()) individual.root = mutated;
-        else individual.root = replaceAtPath(individual.root, target.path, mutated);
+        if (target.path.isEmpty())
+            individual.root = mutated;
+        else
+            individual.root = replaceAtPath(individual.root, target.path, mutated);
     }
 
     private static Node trimToDepth(Node node, int maxDepth) {
@@ -414,8 +464,10 @@ public class DecisionTreeGP {
     }
 
     private static Node trimToDepth(Node node, int maxDepth, int currentDepth) {
-        if (node instanceof LeafNode) return node.deepCopy();
-        if (currentDepth >= maxDepth) return new LeafNode(majorityPrediction(node));
+        if (node instanceof LeafNode)
+            return node.deepCopy();
+        if (currentDepth >= maxDepth)
+            return new LeafNode(majorityPrediction(node));
 
         DecisionNode decision = (DecisionNode) node;
         Node left = trimToDepth(decision.left, maxDepth, currentDepth + 1);
@@ -429,7 +481,8 @@ public class DecisionTreeGP {
         gatherLeafPredictions(node, predictions);
         int positive = 0;
         for (int prediction : predictions) {
-            if (prediction == POSITIVE_CLASS) positive++;
+            if (prediction == POSITIVE_CLASS)
+                positive++;
         }
         return positive * 2 >= Math.max(1, predictions.size()) ? POSITIVE_CLASS : 0;
     }
@@ -454,7 +507,8 @@ public class DecisionTreeGP {
         for (Instance instance : dataset.instances) {
             int prediction = individual.root.predict(instance);
             int actual = instance.label;
-            if (prediction == actual) correct++;
+            if (prediction == actual)
+                correct++;
             int actualIndex = actual == POSITIVE_CLASS ? 1 : 0;
             int predictedIndex = prediction == POSITIVE_CLASS ? 1 : 0;
             metrics.confusion[actualIndex][predictedIndex]++;
@@ -466,7 +520,8 @@ public class DecisionTreeGP {
         int fn = metrics.confusion[1][0];
         metrics.precision = tp + fp == 0 ? 0.0 : (double) tp / (tp + fp);
         metrics.recall = tp + fn == 0 ? 0.0 : (double) tp / (tp + fn);
-        metrics.fMeasure = metrics.precision + metrics.recall == 0.0 ? 0.0 : (2.0 * metrics.precision * metrics.recall) / (metrics.precision + metrics.recall);
+        metrics.fMeasure = metrics.precision + metrics.recall == 0.0 ? 0.0
+                : (2.0 * metrics.precision * metrics.recall) / (metrics.precision + metrics.recall);
         return metrics;
     }
 
@@ -505,7 +560,8 @@ public class DecisionTreeGP {
 
         for (int i = 1; i < lines.size(); i++) {
             String[] parts = splitCsvLine(lines.get(i));
-            if (parts.length < featureCount + 1) continue;
+            if (parts.length < featureCount + 1)
+                continue;
 
             int label = parseIntSafe(parts[0]);
             int[] features = new int[featureCount];
@@ -571,9 +627,11 @@ public class DecisionTreeGP {
 
     private static File resolveExistingFile(String... candidates) {
         for (String candidate : candidates) {
-            if (candidate == null) continue;
+            if (candidate == null)
+                continue;
             File file = new File(candidate);
-            if (file.isFile()) return file;
+            if (file.isFile())
+                return file;
         }
         return null;
     }
@@ -581,7 +639,8 @@ public class DecisionTreeGP {
     private static void saveModel(Individual best) throws IOException {
         File modelFile = new File(MODEL_FILE);
         File parent = modelFile.getParentFile();
-        if (parent != null && !parent.exists()) parent.mkdirs();
+        if (parent != null && !parent.exists())
+            parent.mkdirs();
         try (ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream(modelFile))) {
             output.writeObject(best);
         }
