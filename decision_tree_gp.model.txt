@@ -1,0 +1,64 @@
+if age <= 2
+  if breast_quad <= 0
+    if inv_nodes <= 0
+      if node_caps <= 0
+        The prediction is:  0
+      else
+        if inv_nodes <= 0
+          The prediction is:  0
+        else
+          The prediction is:  1
+    else
+      The prediction is:  1
+  else
+    if age <= 2
+      if breast_quad <= 0
+        if inv_nodes <= 0
+          The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if breast_quad <= 0
+          The prediction is:  0
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        The prediction is:  0
+      else
+        if breast_quad <= 0
+          The prediction is:  1
+        else
+          The prediction is:  1
+else
+  if irradiat <= 0
+    if inv_nodes <= 0
+      if tumor_size <= 0
+        The prediction is:  0
+      else
+        The prediction is:  0
+    else
+      if breast_quad <= 0
+        The prediction is:  0
+      else
+        The prediction is:  1
+  else
+    if breast_quad <= 0
+      if node_caps <= 0
+        if irradiat <= 0
+          The prediction is:  0
+        else
+          The prediction is:  0
+      else
+        if breast_quad <= 0
+          The prediction is:  1
+        else
+          The prediction is:  1
+    else
+      if age <= 2
+        The prediction is:  1
+      else
+        if inv_nodes <= 0
+          The prediction is:  1
+        else
+          The prediction is:  1

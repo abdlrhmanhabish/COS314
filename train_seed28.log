@@ -1,0 +1,4981 @@
+Enter mode (train/test): Enter seed value: Enter training filepath (e.g., Breast_train.csv): Enter test filepath (e.g., Breast_test.csv): Generation 1
+  Best Individual: accuracy=0.8033, fitness=0.8033
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if node_caps <= 0
+        if inv_nodes <= 1
+          The prediction is:  0
+        else
+          The prediction is:  1
+      else
+        if breast <= 0
+          The prediction is:  1
+        else
+          The prediction is:  1
+
+
+Generation 2
+  Best Individual: accuracy=0.8033, fitness=0.8033
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if node_caps <= 0
+        if inv_nodes <= 1
+          The prediction is:  0
+        else
+          The prediction is:  1
+      else
+        if breast <= 0
+          The prediction is:  1
+        else
+          The prediction is:  1
+
+
+Generation 3
+  Best Individual: accuracy=0.8142, fitness=0.8142
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if irradiat <= 0
+        The prediction is:  0
+      else
+        The prediction is:  1
+
+
+Generation 4
+  Best Individual: accuracy=0.8142, fitness=0.8142
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if irradiat <= 0
+        The prediction is:  0
+      else
+        The prediction is:  1
+
+
+Generation 5
+  Best Individual: accuracy=0.8142, fitness=0.8142
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if irradiat <= 0
+        The prediction is:  0
+      else
+        The prediction is:  1
+
+
+Generation 6
+  Best Individual: accuracy=0.8197, fitness=0.8197
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 4
+          if breast <= 0
+            The prediction is:  0
+          else
+            The prediction is:  0
+        else
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        The prediction is:  1
+
+
+Generation 7
+  Best Individual: accuracy=0.8197, fitness=0.8197
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 4
+          if breast <= 0
+            The prediction is:  0
+          else
+            The prediction is:  0
+        else
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        The prediction is:  1
+
+
+Generation 8
+  Best Individual: accuracy=0.8197, fitness=0.8197
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 4
+          if breast <= 0
+            The prediction is:  0
+          else
+            The prediction is:  0
+        else
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        The prediction is:  1
+
+
+Generation 9
+  Best Individual: accuracy=0.8251, fitness=0.8251
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if node_caps <= 0
+        if inv_nodes <= 1
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if breast <= 0
+          The prediction is:  1
+        else
+          The prediction is:  1
+
+
+Generation 10
+  Best Individual: accuracy=0.8251, fitness=0.8251
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if node_caps <= 0
+        if inv_nodes <= 1
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if breast <= 0
+          The prediction is:  1
+        else
+          The prediction is:  1
+
+
+Generation 11
+  Best Individual: accuracy=0.8251, fitness=0.8251
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if node_caps <= 0
+        if inv_nodes <= 1
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if breast <= 0
+          The prediction is:  1
+        else
+          The prediction is:  1
+
+
+Generation 12
+  Best Individual: accuracy=0.8251, fitness=0.8251
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if node_caps <= 0
+        if inv_nodes <= 1
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if breast <= 0
+          The prediction is:  1
+        else
+          The prediction is:  1
+
+
+Generation 13
+  Best Individual: accuracy=0.8306, fitness=0.8306
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            if breast_quad <= 4
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  0
+            else
+              The prediction is:  0
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 14
+  Best Individual: accuracy=0.8306, fitness=0.8306
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            if breast_quad <= 4
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  0
+            else
+              The prediction is:  0
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 15
+  Best Individual: accuracy=0.8306, fitness=0.8306
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            if breast_quad <= 4
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  0
+            else
+              The prediction is:  0
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 16
+  Best Individual: accuracy=0.8306, fitness=0.8306
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            if breast_quad <= 4
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  0
+            else
+              The prediction is:  0
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 17
+  Best Individual: accuracy=0.8306, fitness=0.8306
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            if breast_quad <= 4
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  0
+            else
+              The prediction is:  0
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 18
+  Best Individual: accuracy=0.8306, fitness=0.8306
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            if breast_quad <= 4
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  0
+            else
+              The prediction is:  0
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 19
+  Best Individual: accuracy=0.8306, fitness=0.8306
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            if breast_quad <= 4
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  0
+            else
+              The prediction is:  0
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 20
+  Best Individual: accuracy=0.8306, fitness=0.8306
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            if breast_quad <= 4
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  0
+            else
+              The prediction is:  0
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 21
+  Best Individual: accuracy=0.8306, fitness=0.8306
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            if breast_quad <= 4
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  0
+            else
+              The prediction is:  0
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 22
+  Best Individual: accuracy=0.8306, fitness=0.8306
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            if breast_quad <= 4
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  0
+            else
+              The prediction is:  0
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 23
+  Best Individual: accuracy=0.8306, fitness=0.8306
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            if breast_quad <= 4
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  0
+            else
+              The prediction is:  0
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 24
+  Best Individual: accuracy=0.8306, fitness=0.8306
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            if breast_quad <= 4
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  0
+            else
+              The prediction is:  0
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 25
+  Best Individual: accuracy=0.8306, fitness=0.8306
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            if breast_quad <= 4
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  0
+            else
+              The prediction is:  0
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 26
+  Best Individual: accuracy=0.8306, fitness=0.8306
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            if breast_quad <= 4
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  0
+            else
+              The prediction is:  0
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 27
+  Best Individual: accuracy=0.8306, fitness=0.8306
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            if breast_quad <= 4
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  0
+            else
+              The prediction is:  0
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 28
+  Best Individual: accuracy=0.8306, fitness=0.8306
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            if breast_quad <= 4
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  0
+            else
+              The prediction is:  0
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 29
+  Best Individual: accuracy=0.8306, fitness=0.8306
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            if breast_quad <= 4
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  0
+            else
+              The prediction is:  0
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 30
+  Best Individual: accuracy=0.8306, fitness=0.8306
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            if breast_quad <= 4
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  0
+            else
+              The prediction is:  0
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 31
+  Best Individual: accuracy=0.8306, fitness=0.8306
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            if breast_quad <= 4
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  0
+            else
+              The prediction is:  0
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 32
+  Best Individual: accuracy=0.8306, fitness=0.8306
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            if breast_quad <= 4
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  0
+            else
+              The prediction is:  0
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 33
+  Best Individual: accuracy=0.8306, fitness=0.8306
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            if breast_quad <= 4
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  0
+            else
+              The prediction is:  0
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 34
+  Best Individual: accuracy=0.8306, fitness=0.8306
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            if breast_quad <= 4
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  0
+            else
+              The prediction is:  0
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 35
+  Best Individual: accuracy=0.8306, fitness=0.8306
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            if breast_quad <= 4
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  0
+            else
+              The prediction is:  0
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 36
+  Best Individual: accuracy=0.8306, fitness=0.8306
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            if breast_quad <= 4
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  0
+            else
+              The prediction is:  0
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 37
+  Best Individual: accuracy=0.8306, fitness=0.8306
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            if breast_quad <= 4
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  0
+            else
+              The prediction is:  0
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 38
+  Best Individual: accuracy=0.8306, fitness=0.8306
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            if breast_quad <= 4
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  0
+            else
+              The prediction is:  0
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 39
+  Best Individual: accuracy=0.8306, fitness=0.8306
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            if breast_quad <= 4
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  0
+            else
+              The prediction is:  0
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 40
+  Best Individual: accuracy=0.8306, fitness=0.8306
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            if breast_quad <= 4
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  0
+            else
+              The prediction is:  0
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 41
+  Best Individual: accuracy=0.8306, fitness=0.8306
+  Tree Structure:
+    if deg_malig <= 2
+      The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            if breast_quad <= 4
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  0
+            else
+              The prediction is:  0
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 42
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 43
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 44
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 45
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 46
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 47
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 48
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 49
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 50
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 51
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 52
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 53
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 54
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 55
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 56
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 57
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 58
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 59
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 60
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 61
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 62
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 63
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 64
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 65
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 66
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 67
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 68
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 69
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 70
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 71
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 72
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 73
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 74
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 75
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 76
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 77
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 78
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 79
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 80
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 81
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 82
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 83
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 84
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 85
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 86
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 87
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 88
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 89
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 90
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 91
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 92
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 93
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 94
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 95
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 96
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 97
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 98
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 99
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Generation 100
+  Best Individual: accuracy=0.8361, fitness=0.8361
+  Tree Structure:
+    if deg_malig <= 2
+      if inv_nodes <= 2
+        if breast_quad <= 4
+          if deg_malig <= 2
+            The prediction is:  0
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          The prediction is:  1
+      else
+        if irradiat <= 0
+          if breast_quad <= 3
+            if node_caps <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+          else
+            The prediction is:  1
+        else
+          The prediction is:  0
+    else
+      if irradiat <= 0
+        if breast_quad <= 3
+          if node_caps <= 0
+            if inv_nodes <= 1
+              The prediction is:  0
+            else
+              The prediction is:  1
+          else
+            if breast <= 0
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if deg_malig <= 2
+            The prediction is:  1
+          else
+            The prediction is:  1
+      else
+        if deg_malig <= 2
+          if irradiat <= 0
+            The prediction is:  1
+          else
+            if deg_malig <= 2
+              The prediction is:  1
+            else
+              The prediction is:  1
+        else
+          if irradiat <= 0
+            The prediction is:  0
+          else
+            The prediction is:  1
+
+
+Training accuracy: 83.6066%
+Test accuracy: 65.1163%
+F-measure: 0.5714
+Runtime: 0.469 s

@@ -262,9 +262,9 @@ public class DecisionTreeGP {
                 globalBest = bestOfGeneration.deepCopy();
 
                 System.out.println("Generation " + generation);
-                System.out.printf(Locale.US, "  Best Individual: accuracy=%.4f, fitness=%.4f%n", 
-                    bestOfGeneration.accuracy, bestOfGeneration.fitness);
-                System.out.println("  Tree Structure:");
+                System.out.printf(Locale.US, "  Generation Metrics: accuracy=%.4f, fitness=%.4f%n",
+                        bestOfGeneration.accuracy, bestOfGeneration.fitness);
+                System.out.println("  The Best Tree/Expression:");
                 System.out.println(bestOfGeneration.root.pretty("    ", train.featureNames));
                 System.out.println();
 
@@ -275,13 +275,23 @@ public class DecisionTreeGP {
 
         saveModel(globalBest);
 
+        try {
+            File txtFile = new File(modelFilePath + ".txt");
+            File parentTxt = txtFile.getParentFile();
+            if (parentTxt != null && !parentTxt.exists()) parentTxt.mkdirs();
+            String pretty = globalBest.root.pretty("", train.featureNames);
+            Files.write(txtFile.toPath(), pretty.getBytes(StandardCharsets.UTF_8));
+        } catch (IOException ex) {
+            System.err.println("failed to write model text file: " + ex.getMessage());
+        }
+
         Metrics trainMetrics = evaluate(globalBest, train);
         Metrics testMetrics = test != null ? evaluate(globalBest, test) : null;
         double runtimeSeconds = (end - start) / 1_000_000_000.0;
 
-        System.out.printf(Locale.US, "Training accuracy: %.4f%%%n", trainMetrics.accuracy * 100.0);
+        System.out.printf(Locale.US, "Training Accuracy (%%): %.4f%%%n", trainMetrics.accuracy * 100.0);
         if (testMetrics != null) {
-            System.out.printf(Locale.US, "Test accuracy: %.4f%%%n", testMetrics.accuracy * 100.0);
+            System.out.printf(Locale.US, "Test Accuracy (%%): %.4f%%%n", testMetrics.accuracy * 100.0);
             System.out.printf(Locale.US, "F-measure: %.4f%n", testMetrics.fMeasure);
         }
         System.out.printf(Locale.US, "Runtime: %.3f s%n", runtimeSeconds);
