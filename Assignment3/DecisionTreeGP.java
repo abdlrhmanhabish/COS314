@@ -16,12 +16,13 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 import java.util.Set;
+import java.util.Scanner;
 
 public class DecisionTreeGP {
 
-    private static final String TRAIN_FILE = "Assignment3/Breast_train.csv";
-    private static final String TEST_FILE = "Assignment3/Breast_test.csv";
-    private static final String MODEL_FILE = "Assignment3/decision_tree_gp.model";
+    private static String trainFilePath = "Breast_train.csv";
+    private static String testFilePath = "Breast_test.csv";
+    private static String modelFilePath = "decision_tree_gp.model";
 
     private static final int POPULATION_SIZE = 200;
     private static final int MAX_GENERATIONS = 100;
@@ -194,21 +195,38 @@ public class DecisionTreeGP {
 
     public static void main(String[] args) throws Exception {
         Locale.setDefault(Locale.US);
-        String mode = args.length > 0 ? args[0].trim().toLowerCase(Locale.ROOT) : "train";
-        long seed = args.length > 1 ? parseSeed(args[1]) : 45L;
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter mode (train/test): ");
+        String mode = scanner.nextLine().trim().toLowerCase(Locale.ROOT);
 
         if ("train".equals(mode)) {
-            runTraining(seed);
-            return;
-        }
-        if ("test".equals(mode)) {
-            runTesting();
-            return;
-        }
+            System.out.print("Enter seed value: ");
+            long seed = parseSeed(scanner.nextLine());
+            
+            System.out.print("Enter training filepath (e.g., Breast_train.csv): ");
+            String inputTrain = scanner.nextLine().trim();
+            if (!inputTrain.isEmpty()) trainFilePath = inputTrain;
+            
+            System.out.print("Enter test filepath (e.g., Breast_test.csv): ");
+            String inputTest = scanner.nextLine().trim();
+            if (!inputTest.isEmpty()) testFilePath = inputTest;
 
-        System.out.println("Usage:");
-        System.out.println("  java DecisionTreeGP train [seed]");
-        System.out.println("  java DecisionTreeGP test");
+            runTraining(seed);
+        } else if ("test".equals(mode)) {
+            System.out.print("Enter test filepath (e.g., Breast_test.csv): ");
+            String inputTest = scanner.nextLine().trim();
+            if (!inputTest.isEmpty()) testFilePath = inputTest;
+            
+            System.out.print("Enter model filepath (e.g., decision_tree_gp.model): ");
+            String inputModel = scanner.nextLine().trim();
+            if (!inputModel.isEmpty()) modelFilePath = inputModel;
+
+            runTesting();
+        } else {
+            System.out.println("Invalid mode. Please use 'train' or 'test'.");
+        }
+        scanner.close();
     }
 
     // Parses the random seed
@@ -222,10 +240,10 @@ public class DecisionTreeGP {
 
     // Runs the training part, population initialisation and evolution etc.
     private static void runTraining(long seed) throws Exception {
-        File trainFile = resolveExistingFile(TRAIN_FILE, "Breast_train.csv");
-        File testFile = resolveExistingFile(TEST_FILE, "Breast_test.csv");
+        File trainFile = resolveExistingFile(trainFilePath);
+        File testFile = resolveExistingFile(testFilePath);
         if (trainFile == null)
-            throw new IOException("Training file not found: " + TRAIN_FILE);
+            throw new IOException("Training file not found: " + trainFilePath);
 
         Dataset train = loadDataset(trainFile);
         Dataset test = testFile != null ? loadDataset(testFile) : null;
@@ -243,12 +261,12 @@ public class DecisionTreeGP {
             if (globalBest == null || bestOfGeneration.fitness > globalBest.fitness)
                 globalBest = bestOfGeneration.deepCopy();
 
-            System.out.println("Generation " + generation);
-            for (int i = 0; i < population.size(); i++) {
-                System.out.printf(Locale.US, "  Individual %d: accuracy=%.4f, fitness=%.4f%n", i + 1,
-                        population.get(i).accuracy, population.get(i).fitness);
-            }
-            System.out.println();
+                System.out.println("Generation " + generation);
+                System.out.printf(Locale.US, "  Best Individual: accuracy=%.4f, fitness=%.4f%n", 
+                    bestOfGeneration.accuracy, bestOfGeneration.fitness);
+                System.out.println("  Tree Structure:");
+                System.out.println(bestOfGeneration.root.pretty("    ", train.featureNames));
+                System.out.println();
 
             if (generation < MAX_GENERATIONS)
                 population = nextGeneration(population, train, random);
@@ -271,12 +289,12 @@ public class DecisionTreeGP {
 
     // Runs the testing wpart, loading the model and evaluating on the test set
     private static void runTesting() throws Exception {
-        File modelFile = resolveExistingFile(MODEL_FILE);
-        File testFile = resolveExistingFile(TEST_FILE, "Breast_test.csv");
+        File modelFile = resolveExistingFile(modelFilePath);
+        File testFile = resolveExistingFile(testFilePath);
         if (modelFile == null)
-            throw new IOException("Model file not found: " + MODEL_FILE + ". Run training first.");
+            throw new IOException("Model file not found: " + modelFilePath + ". Run training first.");
         if (testFile == null)
-            throw new IOException("Test file not found: " + TEST_FILE);
+            throw new IOException("Test file not found: " + testFilePath);
 
         Individual model = loadModel(modelFile);
         Dataset test = loadDataset(testFile);
@@ -637,7 +655,7 @@ public class DecisionTreeGP {
     }
 
     private static void saveModel(Individual best) throws IOException {
-        File modelFile = new File(MODEL_FILE);
+        File modelFile = new File(modelFilePath);
         File parent = modelFile.getParentFile();
         if (parent != null && !parent.exists())
             parent.mkdirs();
