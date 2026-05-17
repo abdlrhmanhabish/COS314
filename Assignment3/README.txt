@@ -5,16 +5,27 @@ Team Members:
     2. Abdelrahman Ahmed, u24898008
     3. Abhay Rooplall, u24568792
 
-How to verify the best seed:
-    1. Arithmetic:
+Options to verify the best seed for Arithmetic GP:
+    A. Run the JAR:
+        cd arithmetic
+        java -jar ArithmeticSeedRunner.jar
+
+    B. Compile and run from source:
         cd arithmetic
         javac ArithmeticGP.java ArithmeticSeedRunner.java
         java ArithmeticSeedRunner
 
-    2. Decision Trees:
+ 
+ Options to verify the best seed for Decision Trees GP:
+     A. Run the JAR:
+        cd decision_tree
+        java -jar DecesionTreesSeedRunner.jar
+
+    B. Compile and run from source:
         cd decision_tree
         javac DecisionTreeGP.java DecesionTreesSeedRunner.java
         java DecesionTreesSeedRunner
+
 
 Options to run Arithmetic GP (best seed = 26):
     A. Run the JAR:
