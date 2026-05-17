@@ -13,7 +13,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 
-public class SeedRunner {
+public class DecesionTreesSeedRunner {
 
     private static final int START_SEED = 1;
     private static final int END_SEED = 30;

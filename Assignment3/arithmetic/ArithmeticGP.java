@@ -303,6 +303,17 @@ public class ArithmeticGP {
 
         saveModel(globalBest);
 
+        try {
+            File txtFile = new File(modelFilePath + ".txt");
+            File parentTxt = txtFile.getParentFile();
+            if (parentTxt != null && !parentTxt.exists())
+                parentTxt.mkdirs();
+            String pretty = globalBest.root.pretty(train.featureNames);
+            Files.write(txtFile.toPath(), pretty.getBytes(StandardCharsets.UTF_8));
+        } catch (IOException ex) {
+            System.err.println("failed to write model text file: " + ex.getMessage());
+        }
+
         Metrics trainMetrics = evaluate(globalBest, train);
         Metrics testMetrics = test != null ? evaluate(globalBest, test) : null;
         double runtimeSeconds = (end - start) / 1_000_000_000.0;
