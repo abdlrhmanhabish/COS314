@@ -2,7 +2,10 @@
 
 # README: COS314 Assignment Three - Genetic Programming
 
-**Team Members:** Hamdaan Mirza [Student Number], [Team Member Names/Numbers]
+**Team Members:** 
+1. Hamdaan Mirza, u24898008
+2. Abdelrahman Ahmed, u24898008
+3. Abhay Rooplall, u24568792
 
 **Language Used:** Java
 
