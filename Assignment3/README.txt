@@ -1,89 +1,84 @@
----
+COS314 Assignment 3 - Genetic Programming
 
-# README: COS314 Assignment Three - Genetic Programming
+Team Members:
+    1. Hamdaan Mirza, u24898008
+    2. Abdelrahman Ahmed, u24898008
+    3. Abhay Rooplall, u24568792
 
-**Team Members:** 
-1. Hamdaan Mirza, u24898008
-2. Abdelrahman Ahmed, u24898008
-3. Abhay Rooplall, u24568792
+Options to run Decision Trees GP:
+    A. Run the JAR:
+        cd decision_tree
+        java -jar DecisionTreeGP.jar
 
-**Language Used:** Java
+    B. Compile and run from source:
+        cd decision_tree
+        javac DecisionTreeGP.java
+        java DecisionTreeGP
 
----
+    C. 30-seed runner (outputs to decision_tree/results/):
+        cd decision_tree
+        javac DecisionTreeGP.java SeedRunner.java
+        java SeedRunner
 
-## 1. Execution Instructions (How to Run)
+Options to run Arithmetic GP:
+    A. Run the JAR:
+        cd arithmetic
+        java -jar ArithmeticGP.jar
 
-As per the assignment requirements, this program is designed to run via the command line and does not require an IDE or external libraries.
+    B. Compile and run from source:
+        cd arithmetic
+        javac ArithmeticGP.java
+        java ArithmeticGP
 
-### Option A: Running the Executable JAR (Recommended)
+    C. 30-seed runner (outputs to arithmetic/results/):
+        cd arithmetic
+        javac ArithmeticGP.java ArithmeticSeedRunner.java
+        java ArithmeticSeedRunner
 
-1. Open your terminal or command prompt.
-2. Navigate to the directory containing `DecisionTreeGP.jar`.
-3. Run the following command:
-```bash
-java -jar DecisionTreeGP.jar
+Program Usage and Inputs
 
-```
+Both programs are interactive and will request all parameters needed to run.
 
+To train the model:
+	Enter mode: train
+    Enter seed value: numeric seed, for example 45
+    The program automatically uses Breast_train.csv and Breast_test.csv.
 
+Note: The program outputs the best tree/expression and metrics per generation, evaluates the
+final model, and saves it as decision_tree_gp.model or arithmetic_gp.model.
 
-### Option B: Compiling and Running from Source
+To test an existing model:
+	Enter mode: test
+    The program automatically uses the saved model and Breast_test.csv.
 
-1. Open your terminal and navigate to the directory containing `DecisionTreeGP.java`.
-2. Compile the code:
-```bash
-javac DecisionTreeGP.java
+Note: This loads the pre-trained model and outputs the final test accuracy, F-measure, and
+confusion matrix.
 
-```
+30 Independent Runs Requirement (Both Algorithms)
 
+For each algorithm, you must perform 30 independent runs using unique seed values, record
+the best-performing run, and use that run for demo day.
 
-3. Run the compiled class:
-```bash
-java DecisionTreeGP
+Decision Tree GP:
+	Use the Java seed runner in decision_tree/ (SeedRunner.java) to execute 30 runs and record
+	the best seed automatically.
 
-```
+Arithmetic GP:
+	Use the Java seed runner in arithmetic/ (ArithmeticSeedRunner.java) to execute 30 runs and
+	record the best seed automatically.
 
+3. Demo Replication (Winning Seed)
 
+To replicate the best classification performance reported in the submission, run in train
+mode using the following seed:
+	Best Seed Value: 28
 
----
+4. File Structure Requirements
 
-## 2. Program Usage & Inputs
-
-The program will interactively request the necessary parameters to run.
-
-### To Train the Model:
-
-When you run the program, follow the on-screen prompts:
-
-* **Enter mode:** Type `train`
-* **Enter seed value:** [Enter a numeric seed, e.g., `45`]
-* **Enter training filepath:** [Provide the path, e.g., `Breast_train.csv`]
-* **Enter test filepath:** [Provide the path, e.g., `Breast_test.csv`]
-
-> **Note:** The program will output the best tree and metrics per generation, evaluate the final model, and save it as `decision_tree_gp.model`.
-
-### To Test an Existing Model:
-
-* **Enter mode:** Type `test`
-* **Enter test filepath:** [Provide the path, e.g., `Breast_test.csv`]
-* **Enter model filepath:** [Provide the path, e.g., `decision_tree_gp.model`]
-
-> **Note:** This will load the pre-trained tree and output the final test accuracy, F-measure, and confusion matrix.
-
----
-
-## 3. Demo Replication (Winning Seed)
-
-To replicate our best classification performance as reported in our final submission document, please run the program in **train** mode using the following seed:
-
-* **Best Seed Value:** `28`
-
----
-
-## 4. File Structure Requirements
-
-Ensure the following files are in the same directory when running the program:
-
-* `Breast_train.csv` (Attached dataset)
-* `Breast_test.csv` (Attached dataset)
-* `DecisionTreeGP.jar` (or `.java` / `.class` files)
+Ensure the following files are present with this structure:
+	Breast_train.csv
+	Breast_test.csv
+	decision_tree/DecisionTreeGP.jar (or .java / .class files)
+	decision_tree/SeedRunner.java (optional Java-only 30-seed runner)
+	arithmetic/ArithmeticGP.jar (or .java / .class files)
+	arithmetic/ArithmeticSeedRunner.java (optional Java-only 30-seed runner)

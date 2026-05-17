@@ -9,16 +9,20 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
+import java.util.Set;
+import java.util.Scanner;
 
-public class ArithmeticGP {
+public class DecisionTreeGP {
 
-    private static final String TRAIN_FILE = "Assignment3/Breast_train.csv";
-    private static final String TEST_FILE = "Assignment3/Breast_test.csv";
-    private static final String MODEL_FILE = "Assignment3/arithmetic_gp.model";
+    private static String trainFilePath = "../Breast_train.csv";
+    private static String testFilePath = "../Breast_test.csv";
+    private static String modelFilePath = "decision_tree_gp.model";
 
     private static final int POPULATION_SIZE = 200;
     private static final int MAX_GENERATIONS = 100;
@@ -46,18 +50,21 @@ public class ArithmeticGP {
         final int featureCount;
         final int[] minValues;
         final int[] maxValues;
+        final Set<Integer>[] observedValues;
 
-        Dataset(String[] featureNames, List<Instance> instances, int featureCount, int[] minValues, int[] maxValues) {
+        Dataset(String[] featureNames, List<Instance> instances, int featureCount, int[] minValues, int[] maxValues,
+                Set<Integer>[] observedValues) {
             this.featureNames = featureNames;
             this.instances = instances;
             this.featureCount = featureCount;
             this.minValues = minValues;
             this.maxValues = maxValues;
+            this.observedValues = observedValues;
         }
     }
 
     private interface Node extends Serializable {
-        double evaluate(Instance instance);
+        int predict(Instance instance);
 
         Node deepCopy();
 
@@ -65,41 +72,24 @@ public class ArithmeticGP {
 
         int size();
 
-        String pretty(String[] featureNames);
+        String pretty(String indent, String[] featureNames);
     }
 
-    private enum Operator {
-        ADD("+"),
-        SUB("-"),
-        MUL("*"),
-        DIV("/");
+    private static class LeafNode implements Node {
+        int prediction;
 
-        private final String symbol;
-
-        Operator(String symbol) {
-            this.symbol = symbol;
-        }
-
-        String symbol() {
-            return symbol;
-        }
-    }
-
-    private static class ConstantNode implements Node {
-        double value;
-
-        ConstantNode(double value) {
-            this.value = value;
+        LeafNode(int prediction) {
+            this.prediction = prediction;
         }
 
         @Override
-        public double evaluate(Instance instance) {
-            return value;
+        public int predict(Instance instance) {
+            return prediction;
         }
 
         @Override
         public Node deepCopy() {
-            return new ConstantNode(value);
+            return new LeafNode(prediction);
         }
 
         @Override
@@ -113,76 +103,35 @@ public class ArithmeticGP {
         }
 
         @Override
-        public String pretty(String[] featureNames) {
-            return String.format(Locale.US, "%.3f", value);
+        public String pretty(String indent, String[] featureNames) {
+            return indent + "The prediction is:  " + prediction + "\n";
         }
     }
 
-    private static class FeatureNode implements Node {
+    private static class DecisionNode implements Node {
         int featureIndex;
-
-        FeatureNode(int featureIndex) {
-            this.featureIndex = featureIndex;
-        }
-
-        @Override
-        public double evaluate(Instance instance) {
-            return instance.features[featureIndex];
-        }
-
-        @Override
-        public Node deepCopy() {
-            return new FeatureNode(featureIndex);
-        }
-
-        @Override
-        public int depth() {
-            return 1;
-        }
-
-        @Override
-        public int size() {
-            return 1;
-        }
-
-        @Override
-        public String pretty(String[] featureNames) {
-            return featureNames[featureIndex];
-        }
-    }
-
-    private static class OperatorNode implements Node {
-        Operator operator;
+        int threshold;
         Node left;
         Node right;
 
-        OperatorNode(Operator operator, Node left, Node right) {
-            this.operator = operator;
+        // Creates a decision split node.
+        DecisionNode(int featureIndex, int threshold, Node left, Node right) {
+            this.featureIndex = featureIndex;
+            this.threshold = threshold;
             this.left = left;
             this.right = right;
         }
 
         @Override
-        public double evaluate(Instance instance) {
-            double leftValue = left.evaluate(instance);
-            double rightValue = right.evaluate(instance);
-            switch (operator) {
-                case ADD:
-                    return leftValue + rightValue;
-                case SUB:
-                    return leftValue - rightValue;
-                case MUL:
-                    return leftValue * rightValue;
-                case DIV:
-                    return safeDivide(leftValue, rightValue);
-                default:
-                    return 0.0;
-            }
+        public int predict(Instance instance) {
+            if (instance.features[featureIndex] <= threshold)
+                return left.predict(instance);
+            return right.predict(instance);
         }
 
         @Override
         public Node deepCopy() {
-            return new OperatorNode(operator, left.deepCopy(), right.deepCopy());
+            return new DecisionNode(featureIndex, threshold, left.deepCopy(), right.deepCopy());
         }
 
         @Override
@@ -196,8 +145,15 @@ public class ArithmeticGP {
         }
 
         @Override
-        public String pretty(String[] featureNames) {
-            return "(" + left.pretty(featureNames) + " " + operator.symbol() + " " + right.pretty(featureNames) + ")";
+        // print function to make the tree
+        public String pretty(String indent, String[] featureNames) {
+            StringBuilder builder = new StringBuilder();
+            builder.append(indent).append("if ").append(featureNames[featureIndex])
+                    .append(" <= ").append(threshold).append("\n");
+            builder.append(left.pretty(indent + "  ", featureNames));
+            builder.append(indent).append("else\n");
+            builder.append(right.pretty(indent + "  ", featureNames));
+            return builder.toString();
         }
     }
 
@@ -210,6 +166,7 @@ public class ArithmeticGP {
             this.root = root;
         }
 
+        // Copies the individual and its tree.
         Individual deepCopy() {
             Individual copy = new Individual(root.deepCopy());
             copy.fitness = fitness;
@@ -238,24 +195,25 @@ public class ArithmeticGP {
 
     public static void main(String[] args) throws Exception {
         Locale.setDefault(Locale.US);
-        String mode = args.length > 0 ? args[0].trim().toLowerCase(Locale.ROOT) : "train";
-        long seed = args.length > 1 ? parseSeed(args[1]) : 45L;
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter mode (train/test): ");
+        String mode = scanner.nextLine().trim().toLowerCase(Locale.ROOT);
 
         if ("train".equals(mode)) {
-            runTraining(seed);
-            return;
-        }
-        if ("test".equals(mode)) {
-            runTesting();
-            return;
-        }
+            System.out.print("Enter seed value: ");
+            long seed = parseSeed(scanner.nextLine());
 
-        System.out.println("Usage:");
-        System.out.println("  java ArithmeticGP train [seed]");
-        System.out.println("  java ArithmeticGP test");
+            runTraining(seed);
+        } else if ("test".equals(mode)) {
+            runTesting();
+        } else {
+            System.out.println("Invalid mode. Please use 'train' or 'test'.");
+        }
+        scanner.close();
     }
 
-    // Parse the seed argument with a safe fallback.
+    // Parses the random seed
     private static long parseSeed(String value) {
         try {
             return Long.parseLong(value);
@@ -264,12 +222,12 @@ public class ArithmeticGP {
         }
     }
 
-    // Run the GP evolution loop and persist the best model.
+    // Runs the training part, population initialisation and evolution etc.
     private static void runTraining(long seed) throws Exception {
-        File trainFile = resolveExistingFile(TRAIN_FILE, "Breast_train.csv");
-        File testFile = resolveExistingFile(TEST_FILE, "Breast_test.csv");
+        File trainFile = resolveExistingFile(trainFilePath);
+        File testFile = resolveExistingFile(testFilePath);
         if (trainFile == null)
-            throw new IOException("Training file not found: " + TRAIN_FILE);
+            throw new IOException("Training file not found: " + trainFilePath);
 
         Dataset train = loadDataset(trainFile);
         Dataset test = testFile != null ? loadDataset(testFile) : null;
@@ -284,14 +242,14 @@ public class ArithmeticGP {
             population.sort(Comparator.comparingDouble((Individual individual) -> individual.fitness).reversed());
 
             Individual bestOfGeneration = population.get(0).deepCopy();
-            if (globalBest == null || bestOfGeneration.fitness > globalBest.fitness) {
+            if (globalBest == null || bestOfGeneration.fitness > globalBest.fitness)
                 globalBest = bestOfGeneration.deepCopy();
-            }
 
             System.out.println("Generation " + generation);
-            System.out.printf(Locale.US, "  Best accuracy=%.4f, fitness=%.4f%n", bestOfGeneration.accuracy,
-                    bestOfGeneration.fitness);
-            System.out.println("  Best expression: " + bestOfGeneration.root.pretty(train.featureNames));
+            System.out.printf(Locale.US, "  Generation Metrics: accuracy=%.4f, fitness=%.4f%n",
+                    bestOfGeneration.accuracy, bestOfGeneration.fitness);
+            System.out.println("  The Best Tree/Expression:");
+            System.out.println(bestOfGeneration.root.pretty("    ", train.featureNames));
             System.out.println();
 
             if (generation < MAX_GENERATIONS)
@@ -301,26 +259,37 @@ public class ArithmeticGP {
 
         saveModel(globalBest);
 
+        try {
+            File txtFile = new File(modelFilePath + ".txt");
+            File parentTxt = txtFile.getParentFile();
+            if (parentTxt != null && !parentTxt.exists())
+                parentTxt.mkdirs();
+            String pretty = globalBest.root.pretty("", train.featureNames);
+            Files.write(txtFile.toPath(), pretty.getBytes(StandardCharsets.UTF_8));
+        } catch (IOException ex) {
+            System.err.println("failed to write model text file: " + ex.getMessage());
+        }
+
         Metrics trainMetrics = evaluate(globalBest, train);
         Metrics testMetrics = test != null ? evaluate(globalBest, test) : null;
         double runtimeSeconds = (end - start) / 1_000_000_000.0;
 
-        System.out.printf(Locale.US, "Training accuracy: %.4f%%%n", trainMetrics.accuracy * 100.0);
+        System.out.printf(Locale.US, "Training Accuracy (%%): %.4f%%%n", trainMetrics.accuracy * 100.0);
         if (testMetrics != null) {
-            System.out.printf(Locale.US, "Test accuracy: %.4f%%%n", testMetrics.accuracy * 100.0);
+            System.out.printf(Locale.US, "Test Accuracy (%%): %.4f%%%n", testMetrics.accuracy * 100.0);
             System.out.printf(Locale.US, "F-measure: %.4f%n", testMetrics.fMeasure);
         }
         System.out.printf(Locale.US, "Runtime: %.3f s%n", runtimeSeconds);
     }
 
-    // Load the saved model and evaluate it on the test set.
+    // Runs the testing wpart, loading the model and evaluating on the test set
     private static void runTesting() throws Exception {
-        File modelFile = resolveExistingFile(MODEL_FILE);
-        File testFile = resolveExistingFile(TEST_FILE, "Breast_test.csv");
+        File modelFile = resolveExistingFile(modelFilePath);
+        File testFile = resolveExistingFile(testFilePath);
         if (modelFile == null)
-            throw new IOException("Model file not found: " + MODEL_FILE + ". Run training first.");
+            throw new IOException("Model file not found: " + modelFilePath + ". Run training first.");
         if (testFile == null)
-            throw new IOException("Test file not found: " + TEST_FILE);
+            throw new IOException("Test file not found: " + testFilePath);
 
         Individual model = loadModel(modelFile);
         Dataset test = loadDataset(testFile);
@@ -331,7 +300,7 @@ public class ArithmeticGP {
         printConfusionMatrix(metrics.confusion);
     }
 
-    // Ramped half-and-half initialization of the population.
+    // makes the initial population
     private static List<Individual> initializePopulation(Dataset dataset, Random random) {
         List<Individual> population = new ArrayList<>(POPULATION_SIZE);
         for (int i = 0; i < POPULATION_SIZE; i++) {
@@ -342,45 +311,34 @@ public class ArithmeticGP {
         return population;
     }
 
-    // build a random syntax tree using full/grow logic
+    // Generates a random tree
     private static Node generateTree(Dataset dataset, Random random, int maxDepth, int currentDepth, boolean full) {
         if (currentDepth >= maxDepth)
-            return randomTerminal(dataset, random);
+            return new LeafNode(random.nextBoolean() ? POSITIVE_CLASS : 0);
         if (!full && currentDepth > 1 && random.nextDouble() < 0.35)
-            return randomTerminal(dataset, random);
+            return new LeafNode(random.nextBoolean() ? POSITIVE_CLASS : 0);
 
-        Operator operator = randomOperator(random);
+        int featureIndex = random.nextInt(dataset.featureCount);
+        int threshold = randomThresholdForFeature(dataset, featureIndex, random);
         Node left = generateTree(dataset, random, maxDepth, currentDepth + 1, full);
         Node right = generateTree(dataset, random, maxDepth, currentDepth + 1, full);
-        return new OperatorNode(operator, left, right);
+        return new DecisionNode(featureIndex, threshold, left, right);
     }
 
-    // Pick a terminal node (feature or constant).
-    private static Node randomTerminal(Dataset dataset, Random random) {
-        if (random.nextBoolean())
-            return new FeatureNode(random.nextInt(dataset.featureCount));
-        return new ConstantNode(randomConstant(dataset, random));
+    // Selects a threshold for one feature
+    private static int randomThresholdForFeature(Dataset dataset, int featureIndex, Random random) {
+        List<Integer> values = new ArrayList<>(dataset.observedValues[featureIndex]);
+        Collections.sort(values);
+
+        if (values.isEmpty())
+            return 0;
+        if (values.size() == 1)
+            return values.get(0);
+
+        return values.get(random.nextInt(values.size() - 1));
     }
 
-    // Sample a constant using the observed feature ranges.
-    private static double randomConstant(Dataset dataset, Random random) {
-        int min = Integer.MAX_VALUE;
-        int max = Integer.MIN_VALUE;
-        for (int i = 0; i < dataset.featureCount; i++) {
-            min = Math.min(min, dataset.minValues[i]);
-            max = Math.max(max, dataset.maxValues[i]);
-        }
-        int range = Math.max(1, Math.max(Math.abs(min), Math.abs(max)));
-        return (random.nextDouble() * 2.0 - 1.0) * range;
-    }
-
-    // Uniformly sample an arithmetic operator.
-    private static Operator randomOperator(Random random) {
-        Operator[] operators = Operator.values();
-        return operators[random.nextInt(operators.length)];
-    }
-
-    // Evaluate fitness for every individual.
+    // gets the fitness of the population
     private static void evaluatePopulation(List<Individual> population, Dataset dataset) {
         for (Individual individual : population) {
             Metrics metrics = evaluate(individual, dataset);
@@ -389,7 +347,7 @@ public class ArithmeticGP {
         }
     }
 
-    // Create the next generation using elitism, crossover, and mutation.
+    // Creates the next generation
     private static List<Individual> nextGeneration(List<Individual> population, Dataset dataset, Random random) {
         List<Individual> next = new ArrayList<>(POPULATION_SIZE);
         for (int i = 0; i < ELITE_COUNT; i++)
@@ -409,7 +367,7 @@ public class ArithmeticGP {
             if (random.nextDouble() < MUTATION_RATE)
                 mutate(child, dataset, random);
             if (child.root.depth() > MAX_OFFSPRING_DEPTH)
-                child.root = trimToDepth(child.root, MAX_OFFSPRING_DEPTH, dataset, random);
+                child.root = trimToDepth(child.root, MAX_OFFSPRING_DEPTH);
 
             next.add(child);
         }
@@ -417,7 +375,7 @@ public class ArithmeticGP {
         return next;
     }
 
-    // Tournament selection biased to higher fitness.
+    // we use tournamentselection for selection method
     private static Individual tournamentSelect(List<Individual> population, Random random) {
         Individual best = null;
         for (int i = 0; i < TOURNAMENT_SIZE; i++) {
@@ -428,7 +386,7 @@ public class ArithmeticGP {
         return best.deepCopy();
     }
 
-    //subtree crossover between two parents.
+    // Crossover function,we use subtree crossover
     private static Individual crossover(Individual parent1, Individual parent2, Random random) {
         Node root = parent1.root.deepCopy();
         List<NodePath> firstNodes = collectNodes(root, new ArrayList<>(), new ArrayList<>());
@@ -449,66 +407,63 @@ public class ArithmeticGP {
         return new Individual(root);
     }
 
-    // Collect every node with its path for swap/mutation operations.
+    // get all nodes
     private static List<NodePath> collectNodes(Node node, List<Boolean> path, List<NodePath> result) {
         result.add(new NodePath(node, new ArrayList<>(path)));
-        if (node instanceof OperatorNode) {
-            OperatorNode operator = (OperatorNode) node;
+        if (node instanceof DecisionNode) {
+            DecisionNode decision = (DecisionNode) node;
             path.add(Boolean.TRUE);
-            collectNodes(operator.left, path, result);
+            collectNodes(decision.left, path, result);
             path.remove(path.size() - 1);
             path.add(Boolean.FALSE);
-            collectNodes(operator.right, path, result);
+            collectNodes(decision.right, path, result);
             path.remove(path.size() - 1);
         }
         return result;
     }
 
-    // replace the subtree found at the given path.
+    // helper to replaces a subtree
     private static Node replaceAtPath(Node current, List<Boolean> path, Node replacement) {
         if (path.isEmpty())
             return replacement;
-        if (!(current instanceof OperatorNode))
+        if (!(current instanceof DecisionNode))
             return current.deepCopy();
 
-        OperatorNode operator = (OperatorNode) current;
+        DecisionNode decision = (DecisionNode) current;
         boolean goLeft = path.get(0);
         List<Boolean> remainder = path.subList(1, path.size());
-        Node newLeft = operator.left;
-        Node newRight = operator.right;
+        Node newLeft = decision.left;
+        Node newRight = decision.right;
 
         if (goLeft)
-            newLeft = replaceAtPath(operator.left, remainder, replacement);
+            newLeft = replaceAtPath(decision.left, remainder, replacement);
         else
-            newRight = replaceAtPath(operator.right, remainder, replacement);
+            newRight = replaceAtPath(decision.right, remainder, replacement);
 
-        return new OperatorNode(operator.operator, newLeft, newRight);
+        return new DecisionNode(decision.featureIndex, decision.threshold, newLeft, newRight);
     }
 
-    //Point mutation on an operator or terminal node.
+    // mutation function,
     private static void mutate(Individual individual, Dataset dataset, Random random) {
         List<NodePath> nodes = collectNodes(individual.root, new ArrayList<>(), new ArrayList<>());
         if (nodes.isEmpty())
             return;
 
         NodePath target = nodes.get(random.nextInt(nodes.size()));
-        Node mutated = target.node.deepCopy();
+        Node mutated;
 
-        if (mutated instanceof OperatorNode) {
-            OperatorNode operator = (OperatorNode) mutated;
-            operator.operator = randomOperator(random);
-            mutated = operator;
-        } else if (mutated instanceof FeatureNode) {
-            FeatureNode feature = (FeatureNode) mutated;
-            if (random.nextDouble() < 0.3)
-                mutated = new ConstantNode(randomConstant(dataset, random));
+        if (target.node instanceof LeafNode) {
+            LeafNode leaf = (LeafNode) target.node.deepCopy();
+            leaf.prediction = leaf.prediction == POSITIVE_CLASS ? 0 : POSITIVE_CLASS;
+            mutated = leaf;
+        } else {
+            DecisionNode decision = (DecisionNode) target.node.deepCopy();
+            if (random.nextBoolean())
+                decision.featureIndex = random.nextInt(dataset.featureCount);
             else
-                feature.featureIndex = random.nextInt(dataset.featureCount);
-        } else if (mutated instanceof ConstantNode) {
-            if (random.nextDouble() < 0.3)
-                mutated = new FeatureNode(random.nextInt(dataset.featureCount));
-            else
-                ((ConstantNode) mutated).value = randomConstant(dataset, random);
+                decision.threshold = randomThresholdForFeature(dataset, decision.featureIndex, random);
+
+            mutated = decision;
         }
 
         if (target.path.isEmpty())
@@ -517,34 +472,53 @@ public class ArithmeticGP {
             individual.root = replaceAtPath(individual.root, target.path, mutated);
     }
 
-    // Enforce the maximum depth after genetic operators.
-    private static Node trimToDepth(Node node, int maxDepth, Dataset dataset, Random random) {
-        return trimToDepth(node, maxDepth, 1, dataset, random);
+    private static Node trimToDepth(Node node, int maxDepth) {
+        return trimToDepth(node, maxDepth, 1);
     }
 
-    // Recursively trim deeper subtrees to terminals.
-    private static Node trimToDepth(Node node, int maxDepth, int currentDepth, Dataset dataset, Random random) {
-        if (!(node instanceof OperatorNode))
+    private static Node trimToDepth(Node node, int maxDepth, int currentDepth) {
+        if (node instanceof LeafNode)
             return node.deepCopy();
         if (currentDepth >= maxDepth)
-            return randomTerminal(dataset, random);
+            return new LeafNode(majorityPrediction(node));
 
-        OperatorNode operator = (OperatorNode) node;
-        Node left = trimToDepth(operator.left, maxDepth, currentDepth + 1, dataset, random);
-        Node right = trimToDepth(operator.right, maxDepth, currentDepth + 1, dataset, random);
-        return new OperatorNode(operator.operator, left, right);
+        DecisionNode decision = (DecisionNode) node;
+        Node left = trimToDepth(decision.left, maxDepth, currentDepth + 1);
+        Node right = trimToDepth(decision.right, maxDepth, currentDepth + 1);
+        return new DecisionNode(decision.featureIndex, decision.threshold, left, right);
     }
 
-    // evaluate accuracy and classification metrics for a given model.
+    // we select the majority class among the leaf nodes for prediction
+    private static int majorityPrediction(Node node) {
+        List<Integer> predictions = new ArrayList<>();
+        gatherLeafPredictions(node, predictions);
+        int positive = 0;
+        for (int prediction : predictions) {
+            if (prediction == POSITIVE_CLASS)
+                positive++;
+        }
+        return positive * 2 >= Math.max(1, predictions.size()) ? POSITIVE_CLASS : 0;
+    }
+
+    // gets all leaf predictions in the subtree
+    private static void gatherLeafPredictions(Node node, List<Integer> predictions) {
+        if (node instanceof LeafNode) {
+            predictions.add(((LeafNode) node).prediction);
+            return;
+        }
+        DecisionNode decision = (DecisionNode) node;
+        gatherLeafPredictions(decision.left, predictions);
+        gatherLeafPredictions(decision.right, predictions);
+    }
+
+    // Evaluates accuracy and classification metrics.
     private static Metrics evaluate(Individual individual, Dataset dataset) {
         Metrics metrics = new Metrics();
         metrics.confusion = new int[2][2];
 
         int correct = 0;
         for (Instance instance : dataset.instances) {
-            double rawScore = individual.root.evaluate(instance);
-            double probability = sigmoid(rawScore);
-            int prediction = probability >= 0.5 ? POSITIVE_CLASS : 0;
+            int prediction = individual.root.predict(instance);
             int actual = instance.label;
             if (prediction == actual)
                 correct++;
@@ -564,7 +538,6 @@ public class ArithmeticGP {
         return metrics;
     }
 
-    // pretty-print the confusion matrix for quick inspection
     private static void printConfusionMatrix(int[][] confusion) {
         System.out.println("Confusion matrix [actual x predicted]:");
         System.out.println("            predicted 0   predicted 1");
@@ -572,24 +545,6 @@ public class ArithmeticGP {
         System.out.printf(Locale.US, "actual 1    %10d   %10d%n", confusion[1][0], confusion[1][1]);
     }
 
-    // protected division to satisfy closure.
-    private static double safeDivide(double numerator, double denominator) {
-        if (Math.abs(denominator) < 1e-6)
-            return numerator;
-        return numerator / denominator;
-    }
-
-    // Squash raw GP output into a probability for classification.
-    private static double sigmoid(double value) {
-        if (value >= 0) {
-            double exp = Math.exp(-value);
-            return 1.0 / (1.0 + exp);
-        }
-        double exp = Math.exp(value);
-        return exp / (1.0 + exp);
-    }
-
-    // Load the dataset and compute basic feature ranges.
     private static Dataset loadDataset(File file) throws IOException {
         List<String> rawLines = Files.readAllLines(file.toPath(), StandardCharsets.UTF_8);
         List<String> lines = normalizeCsvLines(rawLines);
@@ -610,6 +565,12 @@ public class ArithmeticGP {
         Arrays.fill(minValues, Integer.MAX_VALUE);
         Arrays.fill(maxValues, Integer.MIN_VALUE);
 
+        @SuppressWarnings("unchecked")
+        Set<Integer>[] observedValues = new Set[featureCount];
+        for (int i = 0; i < featureCount; i++) {
+            observedValues[i] = new HashSet<>();
+        }
+
         for (int i = 1; i < lines.size(); i++) {
             String[] parts = splitCsvLine(lines.get(i));
             if (parts.length < featureCount + 1)
@@ -620,16 +581,17 @@ public class ArithmeticGP {
             for (int featureIndex = 0; featureIndex < featureCount; featureIndex++) {
                 int value = parseIntSafe(parts[featureIndex + 1]);
                 features[featureIndex] = value;
+                observedValues[featureIndex].add(value);
                 minValues[featureIndex] = Math.min(minValues[featureIndex], value);
                 maxValues[featureIndex] = Math.max(maxValues[featureIndex], value);
             }
             instances.add(new Instance(label, features));
         }
 
-        return new Dataset(featureNames, instances, featureCount, minValues, maxValues);
+        return new Dataset(featureNames, instances, featureCount, minValues, maxValues, observedValues);
     }
 
-    // Normalize CSV lines by trimming blanks and folding split rows
+    // Normalizes CSV lines before parsing.
     private static List<String> normalizeCsvLines(List<String> rawLines) {
         List<String> lines = new ArrayList<>();
         for (String rawLine : rawLines) {
@@ -650,12 +612,10 @@ public class ArithmeticGP {
         return lines;
     }
 
-    //Simple CSV splitter (no quoted commas expected).
     private static String[] splitCsvLine(String line) {
         return line.split(",", -1);
     }
 
-    //quick header check to catch missing column names.
     private static boolean isNumeric(String value) {
         try {
             Integer.parseInt(value.trim());
@@ -665,7 +625,7 @@ public class ArithmeticGP {
         }
     }
 
-    // Parse ints with safe fallback for blanks.
+    // Parses an integer safely
     private static int parseIntSafe(String value) {
         String trimmed = value == null ? "" : value.trim();
         if (trimmed.isEmpty()) {
@@ -678,7 +638,6 @@ public class ArithmeticGP {
         }
     }
 
-    // Resolve the first existing file from the candidates list
     private static File resolveExistingFile(String... candidates) {
         for (String candidate : candidates) {
             if (candidate == null)
@@ -690,9 +649,8 @@ public class ArithmeticGP {
         return null;
     }
 
-    // Persist the best individual for later testing.
     private static void saveModel(Individual best) throws IOException {
-        File modelFile = new File(MODEL_FILE);
+        File modelFile = new File(modelFilePath);
         File parent = modelFile.getParentFile();
         if (parent != null && !parent.exists())
             parent.mkdirs();
@@ -701,7 +659,6 @@ public class ArithmeticGP {
         }
     }
 
-    // Load the trained GP model from disk
     private static Individual loadModel(File file) throws IOException, ClassNotFoundException {
         try (ObjectInputStream input = new ObjectInputStream(new FileInputStream(file))) {
             return (Individual) input.readObject();
