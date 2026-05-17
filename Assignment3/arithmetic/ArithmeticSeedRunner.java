@@ -74,7 +74,7 @@ public class ArithmeticSeedRunner {
     }
 
     private static List<String> runArithmetic(int seed, Path logPath) throws IOException, InterruptedException {
-        ProcessBuilder builder = new ProcessBuilder("java", "-cp", ".", "ArithmeticGP");
+        ProcessBuilder builder = new ProcessBuilder("java", "-cp", "ArithmeticGP.jar", "ArithmeticGP");
         builder.redirectErrorStream(true);
         Process process = builder.start();
 

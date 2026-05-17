@@ -74,7 +74,7 @@ public class DecesionTreesSeedRunner {
     }
 
     private static List<String> runDecisionTree(int seed, Path logPath) throws IOException, InterruptedException {
-        ProcessBuilder builder = new ProcessBuilder("java", "-cp", ".", "DecisionTreeGP");
+        ProcessBuilder builder = new ProcessBuilder("java", "-cp", "DecisionTreeGP.jar", "DecisionTreeGP");
         builder.redirectErrorStream(true);
         Process process = builder.start();
 
